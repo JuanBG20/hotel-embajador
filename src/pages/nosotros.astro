@@ -1,0 +1,80 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FeatureSection from '../components/FeatureSection.astro';
+
+import hotelFachada from '../assets/fotoHotelV.jpg';
+import habitacion from '../assets/habitacion.jpg';
+import desayuno from '../assets/desayuno.jpg';
+---
+
+<Layout>
+  <main>
+    <h1 class="title">Hotel Embajador</h1>
+
+    <FeatureSection
+      image={hotelFachada}
+      alt="Foto de la fachada del hotel"
+      theme="alternate"
+    >
+      <div slot="content">
+        <p>
+          En pleno centro de la ciudad de Junín, el <span>Hotel Embajador</span>
+          es el punto de reunión por excelencia.
+        </p>
+        <p>
+          Tenemos el orgullo de representar la tradición hotelera en nuestra
+          ciudad. La preferencia de los máximos representantes nacionales e
+          internacionales del comercio, la industria, las artes, las ciencias y
+          la política, nos compromete a ser mejores cada día. Para Usted.
+        </p>
+      </div>
+    </FeatureSection>
+
+    <FeatureSection
+      image={habitacion}
+      alt="Foto de una habitacion del hotel"
+      reverse
+    >
+      <div slot="content">
+        <p>
+          Contamos con 40 distinguidas habitaciones y departamentos de dos
+          ambientes
+        </p>
+        <p>
+          Todas nuestras habitaciones están equipadas con teléfono, TV por
+          cable, room service las 24h, ventiladores, aire acondicionado,
+          calefacción central, caja de seguridad y WiFi.
+        </p>
+        <a href="/habitaciones" class="btn-outline">Más información</a>
+      </div>
+    </FeatureSection>
+
+    <FeatureSection
+      image={desayuno}
+      alt="Foto del desayuno del hotel"
+      theme="alternate"
+    >
+      <div slot="content">
+        <p>
+          Por si todo eso fuera poco, nuestro hotel ofrece los servicios de
+          conchera, desayuno, lavandería, cadetería y remises.
+        </p>
+        <p>También terciarizamos servicios de gimnasio y turísticos.</p>
+      </div>
+    </FeatureSection>
+  </main>
+</Layout>
+
+<style>
+  main {
+    padding-top: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .title {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+</style>

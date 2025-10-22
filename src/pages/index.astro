@@ -1,11 +1,116 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Hotel Embajador">
+  <main>
+    <div>
+      <h1 class="title">Hotel Embajador</h1>
+      <p>
+        En pleno centro de la ciudad de Junín, el <span>Hotel Embajador</span> es
+        el punto de reunión por excelencia.
+      </p>
+      <p>
+        Tenemos el orgullo de representar la tradición hotelera en nuestra
+        ciudad. La preferencia de los máximos representantes nacionales e
+        internacionales del comercio, la industria, las artes, las ciencias y la
+        política, nos compromete a ser mejores cada día. Para Usted.
+      </p>
+      <a href="/nosotros" class="btn-outline">Más información</a>
+    </div>
+  </main>
+
+  <section class="newsletter">
+    <h2>No te pierdas nuestras promociones</h2>
+    <p>Subscribite al newsletter</p>
+
+    <form
+      action="https://formsubmit.co/009b2b4428c6b8c9bf7e3f0a91efcaa8 "
+      method="POST"
+      class="form-newsletter"
+    >
+      <input
+        type="email"
+        name="email"
+        placeholder="Ingrese su correo electrónico..."
+      />
+      <input
+        type="hidden"
+        name="_subject"
+        value="Newsletter: ¡Nueva subscripción!"
+      />
+      <input
+        type="hidden"
+        name="_autoresponse"
+        value="¡Gracias por subscribirte a nuestro newsletter! Te mantendremos informado sobre nuestras promociones y novedades."
+      />
+      <button type="submit" class="btn-solid">Subscribirse</button>
+    </form>
+  </section>
 </Layout>
+
+<style>
+  main {
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.8) 0%,
+        rgba(255, 255, 255, 0.6) 40%,
+        rgba(255, 255, 255, 0) 80%
+      ),
+      url(../assets/fotoHotelH.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+  }
+
+  main div {
+    max-width: 50%;
+    height: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+  }
+
+  span {
+    font-weight: bold;
+    color: var(--color-dark);
+  }
+
+  .newsletter {
+    padding: 4rem 0;
+    text-align: center;
+    background-color: #f5f5f5;
+  }
+
+  .newsletter h2 {
+    font-size: 2rem;
+  }
+
+  .newsletter p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-newsletter {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .form-newsletter input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    width: 300px;
+  }
+</style>
