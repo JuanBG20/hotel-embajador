@@ -1,0 +1,69 @@
+<main>
+  <div>
+    <h1 class="title">Hotel Embajador</h1>
+    <p>
+      En pleno centro de la ciudad de Junín, el <span>Hotel Embajador</span> es el
+      punto de reunión por excelencia.
+    </p>
+    <p>
+      Tenemos el orgullo de representar la tradición hotelera en nuestra ciudad.
+      La preferencia de los máximos representantes nacionales e internacionales
+      del comercio, la industria, las artes, las ciencias y la política, nos
+      compromete a ser mejores cada día. Para Usted.
+    </p>
+    <a href="/nosotros" class="btn-outline">Más información</a>
+  </div>
+</main>
+
+<style>
+  main {
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.8) 0%,
+        rgba(255, 255, 255, 0.6) 40%,
+        rgba(255, 255, 255, 0) 80%
+      ),
+      url(../assets/fotoHotelH.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+  }
+
+  main div {
+    max-width: 50%;
+    height: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+  }
+
+  span {
+    font-weight: bold;
+    color: var(--color-dark);
+  }
+
+  @media (max-width: 768px) {
+    main {
+      background-image: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.8) 0%,
+          rgba(255, 255, 255, 0.6) 10%,
+          rgba(255, 255, 255, 0) 80%
+        ),
+        url(../assets/fotoHotelH.png);
+    }
+
+    main div {
+      max-width: 100%;
+    }
+  }
+</style>

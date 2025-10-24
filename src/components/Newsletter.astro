@@ -1,0 +1,77 @@
+<section class="newsletter">
+  <h2>No te pierdas nuestras promociones</h2>
+  <p>Subscribite al newsletter</p>
+
+  <form
+    action="https://formsubmit.co/009b2b4428c6b8c9bf7e3f0a91efcaa8 "
+    method="POST"
+    class="form-newsletter"
+  >
+    <input
+      type="email"
+      name="email"
+      placeholder="Ingrese su correo electrónico..."
+    />
+    <input
+      type="hidden"
+      name="_subject"
+      value="Newsletter: ¡Nueva subscripción!"
+    />
+    <input
+      type="hidden"
+      name="_autoresponse"
+      value="¡Gracias por subscribirte a nuestro newsletter! Te mantendremos informado sobre nuestras promociones y novedades."
+    />
+    <button type="submit" class="btn-solid">Subscribirse</button>
+  </form>
+</section>
+
+<style>
+  .newsletter {
+    padding: 4rem 0;
+    text-align: center;
+    background-color: #f5f5f5;
+  }
+
+  .newsletter h2 {
+    font-size: 2rem;
+  }
+
+  .newsletter p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-newsletter {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .form-newsletter input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    width: 300px;
+  }
+
+  @media (max-width: 768px) {
+    .newsletter p {
+      margin-top: 0.5rem;
+    }
+
+    .form-newsletter {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .form-newsletter input {
+      width: 80%;
+    }
+
+    .form-newsletter button {
+      width: 80%;
+    }
+  }
+</style>
