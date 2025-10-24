@@ -1,5 +1,6 @@
 ---
-import logo from '../assets/logo.png'
+import logo from '../assets/logo.png';
+import MenuIcon from './MenuIcon.astro';
 ---
 
 <header class="header">
@@ -13,7 +14,7 @@ import logo from '../assets/logo.png'
       </li>
     </ul>
 
-    <a href="/">
+    <a href="/" class="link-img">
       <img src={logo.src} alt="Logo Hotel" />
     </a>
 
@@ -25,20 +26,14 @@ import logo from '../assets/logo.png'
         <a href="/reservar">Reservar</a>
       </li>
     </ul>
+
+    <button class="nav-button" aria-label="Abrir menú">
+      <span>
+        <MenuIcon />
+      </span>
+    </button>
   </nav>
 </header>
-
-<script>
-  const header = document.querySelector('header');
-
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      header?.classList.add('header-scrolled', 'shrink');
-    } else {
-      header?.classList.remove('header-scrolled', 'shrink');
-    }
-  });
-</script>
 
 <style>
   header {
@@ -107,4 +102,111 @@ import logo from '../assets/logo.png'
   .header-scrolled img {
     height: 6rem;
   }
+
+  .nav-button {
+    display: none;
+    width: 4rem;
+    height: var(--header-height-initial);
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 1rem;
+    color: var(--color-text-light);
+    transition:
+      color 0.3s ease,
+      height 0.3s ease;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .header-scrolled .nav-button {
+    height: var(--header-height-scrolled);
+    color: var(--color-text-dark);
+  }
+
+  @media (max-width: 768px) {
+    nav ul {
+      display: none;
+    }
+
+    .nav-button {
+      display: block;
+    }
+
+    nav img {
+      border-bottom-left-radius: 0px;
+      height: var(--header-height-initial);
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .header-scrolled nav img {
+      height: var(--header-height-scrolled);
+    }
+
+    .show-menu {
+      height: 100vh;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .show-menu img {
+      border-bottom-left-radius: 8px;
+      transform: translateX(calc(50vw - 50%));
+    }
+
+    .show-menu .nav-button {
+      height: var(--header-height-initial);
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    .show-menu ul {
+      display: flex;
+      flex-direction: column;
+      max-height: 30vh;
+      font-size: 1.5rem;
+    }
+
+    .show-menu > :first-child {
+      margin-top: 6rem;
+    }
+  }
 </style>
+
+<script>
+  const header = document.querySelector('header');
+  const navButton = document.querySelector('.nav-button');
+  const navMenu = document.querySelector('nav');
+  const body = document.querySelector('body');
+
+  window.addEventListener('scroll', () => {
+    if (body?.classList.contains('no-scroll')) return;
+
+    if (window.scrollY > 50) {
+      header?.classList.add('header-scrolled', 'shrink');
+    } else {
+      header?.classList.remove('header-scrolled', 'shrink');
+    }
+  });
+
+  navButton?.addEventListener('click', () => {
+    body?.classList.toggle('no-scroll');
+    navMenu?.classList.toggle('show-menu');
+
+    const isScrolled = window.scrollY > 50;
+
+    if (isScrolled) {
+      header?.classList.toggle('header-scrolled');
+      header?.classList.toggle('shrink');
+    }
+  });
+</script>
