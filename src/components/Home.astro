@@ -65,5 +65,24 @@
     main div {
       max-width: 100%;
     }
+
+    .btn-outline {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border: 2px solid var(--color-dark);
+      border-radius: 5px;
+      background-color: var(--color-dark);
+      color: var(--color-bg-light);
+      cursor: pointer;
+      transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+    }
+
+    .btn-outline:hover {
+      background-color: transparent;
+      border: 2px solid var(--color-dark);
+      color: var(--color-dark);
+    }
   }
 </style>
