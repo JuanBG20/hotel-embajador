@@ -1,0 +1,101 @@
+---
+import ArrowIcon from './icons/ArrowIcon.astro';
+---
+
+<section id="carrousel">
+  <button class="arrow prev" id="prevArrow" aria-label="Imagen anterior">
+    <ArrowIcon isPrev />
+  </button>
+
+  <div id="content">
+    <slot />
+  </div>
+
+  <button class="arrow next" id="nextArrow" aria-label="Imagen siguiente">
+    <ArrowIcon />
+  </button>
+</section>
+
+<style>
+  #carrousel {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .arrow {
+    border: none;
+    background: none;
+    width: 3rem;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+  }
+
+  .next {
+    right: 0;
+  }
+
+  .prev {
+    left: 0;
+  }
+
+  #content {
+    display: flex;
+    transition: transform 0.3s ease-out;
+  }
+
+  #content > :global(*) {
+    min-width: 100%;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 768px) {
+    .arrow {
+      top: 22rem;
+      transform: translateY(0);
+    }
+  }
+
+  @media (min-width: 768px) {
+    #carrousel:hover .arrow {
+      color: var(--color-text-dark);
+    }
+  }
+</style>
+
+<script>
+  const nextArrow = document.getElementById('nextArrow');
+  const prevArrow = document.getElementById('prevArrow');
+  const carrousel = document.getElementById('content');
+
+  if (carrousel != null) {
+    const slideCount = carrousel.children.length || 0;
+    let slideIndex = 0;
+
+    prevArrow?.addEventListener('click', () => {
+      if (slideIndex > 0) {
+        slideIndex--;
+
+        carrousel.style.transform = `translateX(-${slideIndex * 100}%)`;
+      } else {
+        slideIndex = slideCount - 1;
+
+        carrousel.style.transform = `translateX(-${slideIndex * 100}%)`;
+      }
+    });
+
+    nextArrow?.addEventListener('click', () => {
+      if (slideCount != null && slideIndex < slideCount - 1) {
+        slideIndex++;
+
+        carrousel.style.transform = `translateX(-${slideIndex * 100}%)`;
+      } else {
+        slideIndex = 0;
+
+        carrousel.style.transform = `translateX(-${slideIndex * 100}%)`;
+      }
+    });
+  }
+</script>
