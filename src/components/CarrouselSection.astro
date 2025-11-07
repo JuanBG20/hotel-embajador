@@ -18,10 +18,11 @@ const habitacionesOrdenadas = habitaciones.sort(
 
   <Carrousel>
     {
-      habitacionesOrdenadas.map(async (hab) => {
+      habitacionesOrdenadas.map((hab) => {
         const { data, slug } = hab;
-        const { roomType, srcRoomImage } = data;
-        const { Content } = await hab.render();
+        const { roomType, srcRoomImage, summary } = data;
+
+        console.log(roomType + ' ' + summary);
 
         return (
           <RoomCard
@@ -29,7 +30,7 @@ const habitacionesOrdenadas = habitaciones.sort(
             srcRoomImage={srcRoomImage}
             href={`habitacion/${slug}`}
           >
-            <Content />
+            <p>{summary}</p>
           </RoomCard>
         );
       })

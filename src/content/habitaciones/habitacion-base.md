@@ -1,11 +1,36 @@
 ---
 roomType: 'Habitación Base'
 srcRoomImage: '/src/assets/habitacionBase.jpg'
+summary: 'Nuestra Habitación Base está diseñada para ofrecerte una estancia cómoda y completa con todo lo esencial.'
 order: 1
 ---
 
-Nuestra Habitación Base está diseñada para ofrecerte una estancia cómoda y completa con todo lo esencial. Disfruta de un ambiente perfectamente climatizado todo el año gracias al aire acondicionado, la calefacción central y los ventiladores individuales.
+### Habitación Base: Comodidad Esencial
 
-Para tu entretenimiento y conexión, la habitación cuenta con TV por cable e Internet WiFi. Además, dispones de teléfono, servicio de Room Service las 24 horas y una caja de seguridad individual para tus pertenencias.
+Nuestra Habitación Base está diseñada para ofrecerte una estancia cómoda y completa con todo lo esencial.
 
-Tu reserva incluye, sin cargo adicional, un completo servicio de desayuno para empezar bien el día, cocheras cubiertas para tu vehículo y cobertura de emergencias médicas para tu tranquilidad.
+#### Confort y Climatización
+
+Disfruta de un ambiente perfectamente climatizado todo el año gracias a:
+
+- Aire acondicionado
+- Calefacción central
+- Ventiladores individuales
+
+#### Equipamiento y Servicios
+
+Para tu entretenimiento y conexión, la habitación cuenta con:
+
+- TV por cable
+- Internet WiFi
+- Teléfono
+- **Room Service las 24 horas**
+- Caja de seguridad individual
+
+---
+
+**Tu reserva incluye (sin cargo adicional):**
+
+- Servicio de desayuno completo.
+- Cocheras cubiertas.
+- Cobertura de emergencias médicas.

@@ -3,11 +3,7 @@ const { roomType, srcRoomImage, href } = Astro.props;
 ---
 
 <div class="roomCard">
-  <img
-    class="roomImage"
-    src={srcRoomImage}
-    alt={`Imagen de la habitación ${roomType}`}
-  />
+  <img class="roomImage" src={srcRoomImage} alt={`Imagen de ${roomType}`} />
 
   <div class="imageInfo">
     <h3>{roomType}</h3>

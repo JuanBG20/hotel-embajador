@@ -5,6 +5,7 @@ const habitaciones = defineCollection({
   schema: z.object({
     roomType: z.string(),
     srcRoomImage: z.string(), // URL de la imagen
+    summary: z.string(),
     order: z.number().optional() // Orden de la habitacion
   })
 });

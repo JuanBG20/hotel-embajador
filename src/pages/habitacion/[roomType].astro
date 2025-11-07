@@ -1,0 +1,123 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const habitaciones = await getCollection('habitaciones');
+
+  return habitaciones.map((hab) => ({
+    params: { roomType: hab.slug },
+    props: { hab }
+  }));
+}
+
+const { hab } = Astro.props;
+const { data } = hab;
+const { roomType, srcRoomImage } = data;
+const { Content } = await render(hab);
+---
+
+<Layout title={roomType}>
+  <main>
+    <div class="hero">
+      <h1 class="title">{roomType}</h1>
+      <img class="hab-img" src={srcRoomImage} alt=`Imagen de la ${roomType}` />
+    </div>
+
+    <div class="info">
+      <h2 class="subtitle">¿Qué ofrece nuestra habitación?</h2>
+      <div class="content-wrapper">
+        <Content />
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  main {
+    padding: 10rem 2rem 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .hero {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .hab-img {
+    width: 100%;
+    max-width: 900px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 1rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  }
+
+  .info {
+    width: 100%;
+    max-width: 80ch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .subtitle {
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: 0.5rem;
+  }
+
+  .content-wrapper {
+    width: 100%;
+    text-align: left;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  .content-wrapper :global(h3) {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .content-wrapper :global(h4) {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--color-dark);
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .content-wrapper :global(p) {
+    margin-bottom: 1rem;
+  }
+
+  .content-wrapper :global(ul) {
+    list-style-type: disc;
+    padding-left: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .content-wrapper :global(li) {
+    margin-bottom: 0.5rem;
+  }
+
+  .content-wrapper :global(strong) {
+    font-weight: 600;
+    color: var(--color-dark);
+  }
+
+  .content-wrapper :global(hr) {
+    border: 0;
+    height: 1px;
+    background-color: var(--color-primary);
+    margin: 2rem 0;
+  }
+</style>
