@@ -1,11 +1,9 @@
 ---
-import Image from 'astro/components/Image.astro';
-
 const { roomType, srcRoomImage, href } = Astro.props;
 ---
 
 <div class="roomCard">
-  <Image
+  <img
     class="roomImage"
     src={srcRoomImage}
     alt={`Imagen de la habitación ${roomType}`}

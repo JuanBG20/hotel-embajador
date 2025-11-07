@@ -1,143 +1,39 @@
 ---
+import { getCollection, type CollectionEntry } from 'astro:content';
+
 import Carrousel from './Carrousel.astro';
 import RoomCard from './RoomCard.astro';
 
-import habitacionBase from '../assets/habitacionBase.jpg';
-import habitacionJunior from '../assets/habitacionJunior.jpg';
-import habitacionSenior from '../assets/habitacionSenior.jpg';
-import habitacionNupcial from '../assets/habitacionNupcial.jpg';
-import departamento from '../assets/departamento.jpg';
+type HabitacionEntry = CollectionEntry<'habitaciones'>;
+
+const habitaciones = await getCollection('habitaciones');
+const habitacionesOrdenadas = habitaciones.sort(
+  (a: HabitacionEntry, b: HabitacionEntry) =>
+    (a.data.order ?? 99) - (b.data.order ?? 99)
+);
 ---
 
 <section id="carrouselSection">
   <h2 class="subtitle">Conocé nuestras habitaciones</h2>
 
   <Carrousel>
-    <RoomCard roomType="Habitación Base" srcRoomImage={habitacionBase} href="">
-      <p>
-        Nuestra Habitación Base está diseñada para ofrecerte una estancia cómoda
-        y completa con todo lo esencial. Disfruta de un ambiente perfectamente
-        climatizado todo el año gracias al aire acondicionado, la calefacción
-        central y los ventiladores individuales.
-      </p>
-      <p>
-        Para tu entretenimiento y conexión, la habitación cuenta con TV por
-        cable e Internet WiFi. Además, dispones de teléfono, servicio de Room
-        Service las 24 horas y una caja de seguridad individual para tus
-        pertenencias.
-      </p>
-      <p>
-        Tu reserva incluye, sin cargo adicional, un completo servicio de
-        desayuno para empezar bien el día, cocheras cubiertas para tu vehículo y
-        cobertura de emergencias médicas para tu tranquilidad.
-      </p>
-    </RoomCard>
+    {
+      habitacionesOrdenadas.map(async (hab) => {
+        const { data, slug } = hab;
+        const { roomType, srcRoomImage } = data;
+        const { Content } = await hab.render();
 
-    <RoomCard
-      roomType="Habitación Suite Junior"
-      srcRoomImage={habitacionJunior}
-      href=""
-      ><p>
-        Descubre un nivel superior de confort en nuestra Suite Junior, un
-        espacio amplio que cuenta con una cómoda cama sommier y un living
-        integrado, ideal para relajarse o trabajar.
-      </p>
-      <p>
-        La suite está equipada con todas las comodidades modernas, incluyendo
-        aire acondicionado, calefacción central, TV por cable, teléfono,
-        frigobar, secador de cabello e Internet WiFi. Para tu conveniencia y
-        seguridad, ofrecemos Room Service las 24 horas y cajas de seguridad
-        individuales.
-      </p>
-      <p>
-        Además, disfruta de diarios locales y nacionales para mantenerte
-        informado. Tu estancia incluye, sin costo adicional, servicio de
-        desayuno, cocheras cubiertas y cobertura de emergencias médicas,
-        asegurando una experiencia placentera y sin preocupaciones.
-      </p>
-    </RoomCard>
-
-    <RoomCard
-      roomType="Habitación Suite Senior"
-      srcRoomImage={habitacionSenior}
-      href=""
-      ><p>
-        Experimenta la máxima comodidad en nuestra Suite Senior, que ofrece una
-        espaciosa sala de estar independiente, perfecta para reuniones o para
-        disfrutar de un momento de tranquilidad.
-      </p>
-      <p>
-        Equipada con aire acondicionado y calefacción central, la suite
-        garantiza un ambiente ideal en cualquier época del año. Dispone de todas
-        las facilidades modernas, como TV por cable, teléfono, Internet WiFi,
-        frigobar y secador de cabello.
-      </p>
-      <p>
-        Para tu conveniencia, cuentas con Room Service disponible las 24 horas,
-        cajas de seguridad individuales y una selección de diarios locales y
-        nacionales.
-      </p>
-      <p>
-        Tu reserva incluye, sin cargo adicional, servicio de desayuno, cocheras
-        cubiertas para tu vehículo y cobertura de emergencias médicas,
-        asegurando una estancia de primer nivel.
-      </p>
-    </RoomCard>
-
-    <RoomCard
-      roomType="Habitación Suite Nupcial"
-      srcRoomImage={habitacionNupcial}
-      href=""
-    >
-      <p>
-        Celebren un momento inolvidable en nuestra Suite Nupcial, diseñada
-        especialmente para crear un ambiente romántico y único. A su llegada,
-        serán recibidos con el detalle especial de flores naturales, champagne y
-        bombones para comenzar su estancia de la mejor manera.
-      </p>
-      <p>
-        Disfruten de un amplio espacio que incluye un living privado y una
-        confortable cama sommier. La suite está perfectamente climatizada con
-        aire acondicionado y calefacción central, y cuenta con todas las
-        comodidades modernas: TV por cable, teléfono, Internet WiFi, frigobar y
-        secador de cabello.
-      </p>
-      <p>
-        Para su total comodidad, disponen de Room Service las 24 horas, cajas de
-        seguridad individuales y una selección de diarios locales y nacionales.
-      </p>
-      <p>
-        La estancia se complementa con nuestro servicio de desayuno y cocheras
-        cubiertas, ambos incluidos sin cargo adicional, para que solo se
-        preocupen por disfrutar.
-      </p>
-    </RoomCard>
-
-    <RoomCard roomType="Departamentos" srcRoomImage={departamento} href=""
-      ><p>
-        Ideales para familias o grupos, nuestros Departamentos ofrecen un
-        espacio excepcional en dos amplios ambientes totalmente alfombrados. Con
-        capacidad flexible para 4, 5 o 6 personas, brindan la máxima comodidad
-        para todos los huéspedes.
-      </p>
-      <p>
-        La distribución está pensada para el descanso, contando con una cama
-        matrimonial y tres camas individuales, además de la opción de añadir una
-        cuna. El departamento está completamente equipado con dos televisores
-        con TV por cable, teléfono, frigobar, secador de cabello e Internet
-        WiFi.
-      </p>
-      <p>
-        Disfrute de un ambiente perfecto en cualquier estación gracias al aire
-        acondicionado, la calefacción central y los ventiladores individuales.
-        Para su total conveniencia, dispone de Room Service las 24 horas y cajas
-        de seguridad individuales.
-      </p>
-      <p>
-        Su reserva incluye, sin cargo adicional, un completo servicio de
-        desayuno para empezar el día y cocheras cubiertas para su vehículo.
-      </p>
-    </RoomCard>
+        return (
+          <RoomCard
+            roomType={roomType}
+            srcRoomImage={srcRoomImage}
+            href={`habitacion/${slug}`}
+          >
+            <Content />
+          </RoomCard>
+        );
+      })
+    }
   </Carrousel>
 </section>
 
