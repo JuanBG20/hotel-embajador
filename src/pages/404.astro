@@ -1,0 +1,71 @@
+---
+import LayoutBase from '../layouts/LayoutBase.astro';
+---
+
+<LayoutBase title="404 - Página en construcción">
+  <main>
+    <div class="container-404">
+      <span class="hammer-icon">🔨</span>
+      <h1>¡Oops! Esta página también está en obras.</h1>
+      <p>
+        Parece que esta sección del hotel todavía está en construcción. Estamos
+        trabajando para mejorar tu experiencia.
+      </p>
+      <a href="/" class="btn-outline">Volver al Lobby (Inicio)</a>
+    </div>
+  </main>
+</LayoutBase>
+
+<style>
+  .container-404 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 90vh;
+    padding: 2rem;
+  }
+
+  .hammer-icon {
+    font-size: 5rem;
+    display: inline-block;
+    animation: hammer-swing 1.5s ease-in-out infinite;
+    transform-origin: bottom center;
+    margin-bottom: 1.5rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 2rem;
+  }
+
+  .btn-outline {
+    padding: 1.1rem;
+  }
+
+  @keyframes hammer-swing {
+    0% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(-35deg);
+    }
+    50% {
+      transform: rotate(10deg);
+    }
+    75% {
+      transform: rotate(-35deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+</style>
