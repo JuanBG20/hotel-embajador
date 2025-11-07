@@ -22,8 +22,6 @@ const habitacionesOrdenadas = habitaciones.sort(
         const { data, slug } = hab;
         const { roomType, srcRoomImage, summary } = data;
 
-        console.log(roomType + ' ' + summary);
-
         return (
           <RoomCard
             roomType={roomType}
