@@ -1,6 +1,6 @@
 ---
 roomType: 'Habitación Base'
-srcRoomImage: './src/assets/habitacionBase.jpg'
+srcRoomImage: '/images/habitacionBase.jpg'
 summary: 'Nuestra Habitación Base está diseñada para ofrecerte una estancia cómoda y completa con todo lo esencial.'
 order: 1
 ---

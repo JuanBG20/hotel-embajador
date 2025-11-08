@@ -1,6 +1,6 @@
 ---
 roomType: 'Departamentos'
-srcRoomImage: '/src/assets/departamento.jpg'
+srcRoomImage: '/images/departamento.jpg'
 summary: 'Ideales para familias o grupos, nuestros Departamentos ofrecen un espacio excepcional en dos amplios ambientes totalmente alfombrados. Con capacidad flexible para 4, 5 o 6 personas, brindan la máxima comodidad para todos los huéspedes.'
 order: 5
 ---

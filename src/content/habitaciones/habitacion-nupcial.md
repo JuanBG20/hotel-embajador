@@ -1,6 +1,6 @@
 ---
 roomType: 'Habitación Suite Nupcial'
-srcRoomImage: '/src/assets/habitacionNupcial.jpg'
+srcRoomImage: '/images/habitacionNupcial.jpg'
 summary: 'Celebren un momento inolvidable en nuestra Suite Nupcial, diseñada especialmente para crear un ambiente romántico y único. A su llegada, serán recibidos con el detalle especial de flores naturales, champagne y bombones.'
 order: 4
 ---

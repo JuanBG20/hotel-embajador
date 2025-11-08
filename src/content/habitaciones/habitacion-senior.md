@@ -1,6 +1,6 @@
 ---
 roomType: 'Habitación Suite Senior'
-srcRoomImage: '/src/assets/habitacionSenior.jpg'
+srcRoomImage: '/images/habitacionSenior.jpg'
 summary: 'Experimenta la máxima comodidad en nuestra Suite Senior, que ofrece una espaciosa sala de estar independiente, perfecta para reuniones o para disfrutar de un momento de tranquilidad.'
 order: 3
 ---

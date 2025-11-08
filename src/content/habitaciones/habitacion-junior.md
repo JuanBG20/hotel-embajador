@@ -1,6 +1,6 @@
 ---
 roomType: 'Habitación Suite Junior'
-srcRoomImage: '/src/assets/habitacionJunior.jpg'
+srcRoomImage: '/images/habitacionJunior.jpg'
 summary: 'Descubre un nivel superior de confort en nuestra Suite Junior, un espacio amplio que cuenta con una cómoda cama sommier y un living integrado, ideal para relajarse o trabajar.'
 order: 2
 ---
