@@ -23,7 +23,7 @@ import MenuIcon from './icons/MenuIcon.astro';
         <a href="/#contactSection">Contacto</a>
       </li>
       <li>
-        <a href="/reservar">Reservar</a>
+        <button class="btn-solid" id="btnReserva">Reservar</button>
       </li>
     </ul>
 
@@ -87,6 +87,18 @@ import MenuIcon from './icons/MenuIcon.astro';
 
   .header-scrolled a:hover {
     color: var(--color-primary);
+  }
+
+  .btn-solid {
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease,
+      margin-color 0.3s ease;
+  }
+
+  .header-scrolled .btn-solid:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
   }
 
   img {

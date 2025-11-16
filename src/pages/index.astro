@@ -1,12 +1,11 @@
 ---
-import Carrousel from '../components/Carrousel.astro';
 import ContactSection from '../components/ContactSection.astro';
 import Home from '../components/Home.astro';
 import Newsletter from '../components/Newsletter.astro';
 import Layout from '../layouts/Layout.astro';
 
-import RoomCard from '../components/RoomCard.astro';
 import CarrouselSection from '../components/CarrouselSection.astro';
+import BookingForm from '../components/BookingForm.astro';
 ---
 
 <Layout title="Bienvenido">
@@ -14,4 +13,27 @@ import CarrouselSection from '../components/CarrouselSection.astro';
   <CarrouselSection />
   <ContactSection />
   <Newsletter />
+
+  <BookingForm />
 </Layout>
+
+<script>
+  const btnReserva = document.getElementById('btnReserva');
+  const btnClose = document.getElementById('btnClose');
+  const modal = document.getElementById('modalBookingForm');
+  const body = document.querySelector('body');
+
+  btnClose?.addEventListener('click', () => {
+    if (modal != null) {
+      body?.classList.remove('no-scroll');
+      modal.style.display = 'none';
+    }
+  });
+
+  btnReserva?.addEventListener('click', () => {
+    if (modal != null) {
+      body?.classList.add('no-scroll');
+      modal.style.display = 'flex';
+    }
+  });
+</script>
