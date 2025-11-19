@@ -1,4 +1,5 @@
 ---
+import BookingForm from '../components/BookingForm.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import LayoutBase from './LayoutBase.astro';
@@ -10,4 +11,27 @@ const { title } = Astro.props;
   <Header />
   <slot />
   <Footer />
+
+  <BookingForm />
 </LayoutBase>
+
+<script>
+  const btnReserva = document.getElementById('btnReserva');
+  const btnClose = document.getElementById('btnClose');
+  const modal = document.getElementById('modalBookingForm');
+  const body = document.querySelector('body');
+
+  btnClose?.addEventListener('click', () => {
+    if (modal != null) {
+      body?.classList.remove('no-scroll');
+      modal.style.display = 'none';
+    }
+  });
+
+  btnReserva?.addEventListener('click', () => {
+    if (modal != null) {
+      body?.classList.add('no-scroll');
+      modal.style.display = 'flex';
+    }
+  });
+</script>
